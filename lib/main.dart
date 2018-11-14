@@ -50,7 +50,8 @@ class MyApp extends StatelessWidget {
     );
 
     //Demo Create Widget for body
-    Widget widgetMyFirend = new Container(padding: new EdgeInsets.all(paddingDoule),
+    Widget widgetMyFirend = new Container(
+      padding: new EdgeInsets.all(paddingDoule),
       child: new Row(
         children: <Widget>[
           new Expanded(
@@ -63,11 +64,13 @@ class MyApp extends StatelessWidget {
             child: friend3Text,
           )
         ],
-      ), color: Colors.yellowAccent[400],
+      ),
+      color: Colors.yellowAccent[400],
     ); //บังคับ Row ข้างในจะเป็น chidren
 
-  //Demo Create Widget for body
-    Widget widget1MyFirend = new Container(padding: new EdgeInsets.all(paddingDoule),
+    //Demo Create Widget for body
+    Widget widget1MyFirend = new Container(
+      padding: new EdgeInsets.all(paddingDoule),
       child: new Row(
         children: <Widget>[
           new Expanded(
@@ -80,7 +83,8 @@ class MyApp extends StatelessWidget {
             child: friend3Text,
           )
         ],
-      ), color: Colors.blueAccent[400],
+      ),
+      color: Colors.blueAccent[400],
     ); //บังคับ Row ข้างในจะเป็น chidren
 
     return new MaterialApp(
@@ -89,7 +93,18 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text(titleName),
         ),
-        body: new Container(child: new Column(children: <Widget>[widgetMyFirend,widget1MyFirend,widgetTextmessage],),),
+
+        
+        //Create Columm for body
+        body: new Container(
+          child: new Column(
+            children: <Widget>[
+              widgetMyFirend,
+              widget1MyFirend,
+              widgetTextmessage
+            ],
+          ),
+        ),
       ),
     );
   }
