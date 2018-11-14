@@ -14,14 +14,33 @@ class MyApp extends StatelessWidget {
   var friend1String = 'Doramon';
   var friend2String = 'Nopita';
   var friend3String = 'Sunako';
+  var myFontSize = 20.0;
 
   @override
   Widget build(BuildContext context) {
-
     //Demo Create Text Widget
-    Text friend1Text = new Text(friend1String);
-    Text friend2Text = new Text(friend2String);
-    Text friend3Text = new Text(friend3String);
+    Text friend1Text = new Text(
+      friend1String,
+      style: new TextStyle(
+          color: Colors.deepOrangeAccent[700],
+          fontSize: myFontSize,
+          fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.italic),
+    );
+    Text friend2Text = new Text(
+      friend2String,
+      style: new TextStyle(
+          color: Colors.indigoAccent[700],
+          fontSize: myFontSize,
+          fontStyle: FontStyle.italic),
+    );
+    Text friend3Text = new Text(
+      friend3String,
+      style: new TextStyle(
+          color: Colors.green,
+          fontSize: myFontSize,
+          fontStyle: FontStyle.normal),
+    );
 
     //Widget สร้างจานหนึ่งใบวางบนบนโต๊ะอาหารเพื่อเลื่อนได้สะดวก
     Widget widgetTextmessage = new Container(
@@ -30,19 +49,39 @@ class MyApp extends StatelessWidget {
           messageString), //padding: new EdgeInsets.all(value) เว้นจากขอบแยกเป็น 4 ด้าน
     );
 
-
-  //Demo Create Widget for body
-    Widget widgetMyFirend = new Container(
+    //Demo Create Widget for body
+    Widget widgetMyFirend = new Container(padding: new EdgeInsets.all(paddingDoule),
       child: new Row(
         children: <Widget>[
-          friend1Text,
-          friend2Text,
-          friend3Text
+          new Expanded(
+            child: friend1Text,
+          ),
+          new Expanded(
+            child: friend2Text,
+          ),
+          new Expanded(
+            child: friend3Text,
+          )
         ],
-      ),
+      ), color: Colors.yellowAccent[400],
     ); //บังคับ Row ข้างในจะเป็น chidren
 
-
+  //Demo Create Widget for body
+    Widget widget1MyFirend = new Container(padding: new EdgeInsets.all(paddingDoule),
+      child: new Row(
+        children: <Widget>[
+          new Expanded(
+            child: friend1Text,
+          ),
+          new Expanded(
+            child: friend2Text,
+          ),
+          new Expanded(
+            child: friend3Text,
+          )
+        ],
+      ), color: Colors.blueAccent[400],
+    ); //บังคับ Row ข้างในจะเป็น chidren
 
     return new MaterialApp(
       title: titleName,
@@ -50,7 +89,7 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text(titleName),
         ),
-        body: widgetMyFirend,
+        body: new Container(child: new Column(children: <Widget>[widgetMyFirend,widget1MyFirend,widgetTextmessage],),),
       ),
     );
   }
